@@ -4,13 +4,13 @@ const path = require('path')
 
 module.exports = (api, options, rootOptions) => {
   // 命令
-  api.extendPackage({
-    scripts: {
-      'build:dev': 'vue-cli-service build --mode dev',
-      'build:test': 'vue-cli-service build --mode test',
-      'build:prod': 'vue-cli-service build --mode prod'
-    }
-  })
+  // api.extendPackage({
+  //   scripts: {
+  //     'build:dev': 'vue-cli-service build --mode dev',
+  //     'build:test': 'vue-cli-service build --mode test',
+  //     'build:prod': 'vue-cli-service build --mode prod'
+  //   }
+  // })
 
   // 项目依赖
   api.extendPackage({
@@ -55,27 +55,27 @@ module.exports = (api, options, rootOptions) => {
     }
   })
 
-  api.extendPackage({
-    config: {
-      'commitizen': {
-        'path': './node_modules/cz-conventional-changelog'
-      }
-    }
-  })
+  // api.extendPackage({
+  //   config: {
+  //     'commitizen': {
+  //       'path': './node_modules/cz-conventional-changelog'
+  //     }
+  //   }
+  // })
 
   // commitlint - 校验 git 提交信息格式
-  api.extendPackage({
-    devDependencies: {
-      '@commitlint/cli': '^7.2.1',
-      '@commitlint/config-conventional': '^7.1.2'
-    }
-  })
+  // api.extendPackage({
+  //   devDependencies: {
+  //     '@commitlint/cli': '^7.2.1',
+  //     '@commitlint/config-conventional': '^7.1.2'
+  //   }
+  // })
 
-  api.extendPackage({
-    gitHooks: {
-      'commit-msg': 'commitlint -e'
-    }
-  })
+  // api.extendPackage({
+  //   gitHooks: {
+  //     'commit-msg': 'commitlint -e'
+  //   }
+  // })
 
   // 删除 vue-cli3 默认目录
   api.render(files => {
