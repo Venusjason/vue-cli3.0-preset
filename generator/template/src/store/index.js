@@ -1,39 +1,54 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import createLogger from 'vuex/dist/logger'
 
-// 项目级共享 store modules
-import commonModules from '@store/modules/'
+import config from '@/config'
+import { getUserInfo, testApi } from '../service/index'
+
+const debug = process.env.API_ENV !== 'production'
+
+console.log(config)
+
 Vue.use(Vuex)
 
-/**
- * 创建 store 函数
- * @param {object} obj
- * @param {object} obj.state     - 页面的 state
- * @param {object} obj.getters   - 页面的 getter
- * @param {object} obj.mutations - 页面的 mutaions
- * @param {object} obj.action    - 页面的 actions
- * @param {object} obj.modules   - 页面的 modules
- */
-const generateStore = ({
+const state = {
+  userInfo: {
+    name: '',
+    id: '',
+  },
+}
+
+const getters = {
+
+}
+
+const mutations = {
+  updateUserInfo(state, data) {
+    Object.assign(state.userInfo, data)
+  },
+}
+
+const actions = {
+  // 接口内联到state
+  async getUserInfo({ commit }, userId) {
+    const data = await getUserInfo(userId)
+    commit('updateUserInfo', data)
+  },
+  // 接口不内联到state，需要作为返回值
+  async testApi() {
+    const response = await testApi()
+    return response.data.data
+  },
+}
+
+
+const store = new Vuex.Store({
   state,
   getters,
   mutations,
   actions,
-  modules
-}) => {
-  const store = new Vuex.Store({
-    state,
-    getters,
-    mutations,
-    actions,
-    modules: {
-      ...commonModules,
-      ...modules
-    },
-    strict: process.env.NODE_ENV !== 'production'
-  })
+  strict: debug,
+  plugins: debug ? [createLogger()] : [],
+})
 
-  return store
-}
-
-export default generateStore
+export default store
