@@ -1,5 +1,5 @@
 {
-  "name": "vue-cli3-preset-demo",
+  "name": "vue-cli3-preset",
   "version": "1.0.0",
   "description": "vue-cli preset",
   "main": "./generator/index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yuezhilunhui2009/vue-cli3-preset-demo.git"
+    "url": "git+https://github.com/Venusjason/vue-cli3-preset.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/yuezhilunhui2009/vue-cli3-preset-demo/issues"
+    "url": "https://github.com/Venusjason/vue-cli3-preset/issues"
   },
-  "homepage": "https://github.com/yuezhilunhui2009/vue-cli3-preset-demo#readme",
+  "homepage": "https://github.com/Venusjason/vue-cli3-preset#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-eslint": "^7.2.3",
