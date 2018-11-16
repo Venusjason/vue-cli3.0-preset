@@ -13,7 +13,7 @@ vue-cli3-preset-seed 是一个 web 前端项目骨架，用于配合 Vue.js 开�
 npm install -g @vue/cli
 
 # 根据远程 preset 创建项目 
-vue create --preset yuezhilunhui2009/vue-cli3-preset-seed preset-seed-demo
+vue create --preset Venusjason/vue-cli3-preset preset-seed-demo
 # or
 vue create --preset direct:https://github.com/yuezhilunhui2009/vue-cli3-preset-seed.git preset-demo --clone
 
